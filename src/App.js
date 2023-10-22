@@ -25,6 +25,10 @@ function App() {
     localStorage.setItem('todos', JSON.stringify(todos));
   }, [todos]);
 
+  useEffect(() => {
+    setTodos(initialTodos)
+  }, [])
+
   function deleteTodo(id) {
     const newTodos = todos.filter((todo) => {
       return todo.id !== id;
@@ -56,7 +60,7 @@ function App() {
       >
         To-do Application
       </Heading>
-      <TodoList todos={todos} deleteTodo={deleteTodo} />
+      <TodoList todos={todos} deleteTodo={deleteTodo}/>
       <AddTodo addTodo={addTodo} />
     </VStack>
   );
