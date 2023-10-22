@@ -33,6 +33,9 @@ function App() {
     const newTodos = todos.filter((todo) => {
       return todo.id !== id;
     });
+    for (let i = 0; i < newTodos.length; i++) {
+      newTodos[i].id = i + 1;
+    }
     setTodos(newTodos);
   }
 
@@ -61,7 +64,7 @@ function App() {
         To-do Application
       </Heading>
       <TodoList todos={todos} deleteTodo={deleteTodo}/>
-      <AddTodo addTodo={addTodo} />
+      <AddTodo addTodo={addTodo} todos={todos}/>
     </VStack>
   );
 }
